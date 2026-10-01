@@ -19,10 +19,10 @@ const CodeEditorWorkingSpace = ({
     useIsDoingLevelContext();
 
   useEffect(() => {
-    if (!isDoingLevel) {
+    if (!isLevelComplete) {
       setCurrentCode(startCode);
     }
-  }, [isDoingLevel]);
+  }, [isLevelComplete]);
 
   return (
     <Editor
@@ -59,6 +59,10 @@ const CodeEditorWorkingSpace = ({
           if (hasSelection) {
             setIsDoingLevel(true);
           }
+        });
+
+        editor.onDidBlurEditorWidget(() => {
+          setIsDoingLevel(false);
         });
       }}
     ></Editor>

@@ -10,9 +10,13 @@ const Stopwatch = ({ onTimeLimitExceeded }: StopwatchType) => {
   const {
     isDoingLevel,
     setIsDoingLevel,
+    completionTimeMinutes,
+    completionTimeSeconds,
+    completionTimeMilliseconds,
     setCompletionTimeMinutes,
     setCompletionTimeSeconds,
     setCompletionTimeMilliseconds,
+    isLevelComplete,
   } = useIsDoingLevelContext();
 
   const {
@@ -31,6 +35,12 @@ const Stopwatch = ({ onTimeLimitExceeded }: StopwatchType) => {
     interval: 20,
   });
 
+  const displayMinutes = isDoingLevel ? minutes : completionTimeMinutes;
+  const displaySeconds = isDoingLevel ? seconds : completionTimeSeconds;
+  const displayMilliseconds = isDoingLevel
+    ? milliseconds
+    : completionTimeMilliseconds;
+
   useEffect(() => {
     if (isDoingLevel) {
       start();
@@ -39,9 +49,14 @@ const Stopwatch = ({ onTimeLimitExceeded }: StopwatchType) => {
       setCompletionTimeMinutes(minutes);
       setCompletionTimeSeconds(seconds);
       setCompletionTimeMilliseconds(milliseconds);
-      reset(undefined, false);
     }
   }, [isDoingLevel]);
+
+  useEffect(() => {
+    if (!isLevelComplete) {
+      reset(undefined, false);
+    }
+  }, [isLevelComplete]);
 
   useEffect(() => {
     if (totalSeconds >= 5940) {
@@ -53,9 +68,9 @@ const Stopwatch = ({ onTimeLimitExceeded }: StopwatchType) => {
   return (
     <div>
       <p>
-        {minutes.toString().padStart(2, "0")}:
-        {seconds.toString().padStart(2, "0")}:
-        {Math.floor(milliseconds / 10)
+        {displayMinutes.toString().padStart(2, "0")}:
+        {displaySeconds.toString().padStart(2, "0")}:
+        {Math.floor(displayMilliseconds / 10)
           .toString()
           .padStart(2, "0")}
       </p>
