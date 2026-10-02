@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
+import HowToPlayModal from "./HowToPlayModal";
+import { useState } from "react";
 
 const Button = styled.button`
   background-color: gray;
@@ -7,9 +9,13 @@ const Button = styled.button`
 `;
 
 const LevelControls = () => {
+  const [show, setShow] = useState(false);
+
   return (
     <div>
       <Button>Cancel</Button>
+      <Button onClick={() => setShow(true)}>How To Play</Button>
+      <HowToPlayModal show={show} setShow={setShow}></HowToPlayModal>
     </div>
   );
 };

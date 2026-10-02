@@ -16,6 +16,12 @@ const Editors = styled.div`
   gap: 40px;
 `;
 
+const EditorHeading = styled.span`
+  display: block;
+  text-align: center;
+  font-size: 2em;
+`;
+
 const levelEditorsTemplate = ({
   solutionCode,
   currentCode,
@@ -25,13 +31,19 @@ const levelEditorsTemplate = ({
   return (
     <>
       <Editors>
-        <CodeEditorWorkingSpace
-          solution={solutionCode}
-          currentCode={currentCode}
-          startCode={startCode}
-          setCurrentCode={setCurrentCode}
-        ></CodeEditorWorkingSpace>
-        <CodeEditorSolution solution={solutionCode}></CodeEditorSolution>
+        <div>
+          <EditorHeading>Starting Code</EditorHeading>
+          <CodeEditorWorkingSpace
+            solution={solutionCode}
+            currentCode={currentCode}
+            startCode={startCode}
+            setCurrentCode={setCurrentCode}
+          ></CodeEditorWorkingSpace>
+        </div>
+        <div>
+          <EditorHeading>Goal</EditorHeading>
+          <CodeEditorSolution solution={solutionCode}></CodeEditorSolution>
+        </div>
       </Editors>
     </>
   );
