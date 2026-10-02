@@ -1,18 +1,15 @@
 import styled from "styled-components";
+import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
 
 const Button = styled.button`
   background-color: gray;
   color: #403f3f;
 `;
 
-type LevelControlsProps = {
-  onCancel: () => void;
-};
-
-const LevelControls = ({ onCancel }: LevelControlsProps) => {
+const LevelControls = () => {
   return (
     <div>
-      <Button onClick={onCancel}>Cancel</Button>
+      <Button>Cancel</Button>
     </div>
   );
 };

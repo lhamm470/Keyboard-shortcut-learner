@@ -27,14 +27,7 @@ const LevelPageTemplate = ({
     <>
       <p>{description}</p>
       {/* Relevant keyboard shortcuts */}
-      <ControlsHeading
-        onCancel={() => {
-          setIsDoingLevel(false);
-        }}
-        onTimeLimitExceeded={() => {
-          setIsDoingLevel(false);
-        }}
-      ></ControlsHeading>
+      <ControlsHeading></ControlsHeading>
       <LevelEditorsTemplate
         solutionCode={solutionCode}
         currentCode={currentCode}

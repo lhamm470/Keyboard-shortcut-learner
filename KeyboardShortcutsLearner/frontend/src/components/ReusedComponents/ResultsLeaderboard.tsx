@@ -2,6 +2,7 @@ import { Button, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
+import { GameState } from "../../IsDoingLevelContext";
 
 const ModalContent = styled(Modal)`
   .modal-content {
@@ -21,25 +22,27 @@ const ModalContent = styled(Modal)`
 const ResultsLeaderboard = () => {
   const [show, setShow] = useState(false);
   const {
-    isDoingLevel,
     completionTimeMinutes,
     completionTimeSeconds,
     completionTimeMilliseconds,
-    isLevelComplete,
-    setIsLevelComplete,
+    gameState,
+    setGameState,
   } = useIsDoingLevelContext();
 
   useEffect(() => {
-    if (isLevelComplete) setShow(true);
-    else setShow(false);
-  }, [isLevelComplete]);
+    if (gameState == GameState.COMPLETED) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  }, [gameState]);
 
   return (
     <>
       <ModalContent
         show={show}
         onHide={() => {
-          setIsLevelComplete(false);
+          setGameState(GameState.IDLE);
         }}
         centered
       >
@@ -63,7 +66,7 @@ const ResultsLeaderboard = () => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button onClick={() => setShow(false)}>Close</Button>
+          <Button onClick={() => setGameState(GameState.IDLE)}>Close</Button>
         </Modal.Footer>
       </ModalContent>
     </>

@@ -1,6 +1,7 @@
 import Editor from "@monaco-editor/react";
 import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
 import { useEffect } from "react";
+import { GameState } from "../../IsDoingLevelContext";
 
 type CodeEditorWorkingSpaceProps = {
   solution: string;
@@ -15,14 +16,15 @@ const CodeEditorWorkingSpace = ({
   startCode,
   setCurrentCode: setCurrentCode,
 }: CodeEditorWorkingSpaceProps) => {
-  const { isDoingLevel, setIsDoingLevel, isLevelComplete, setIsLevelComplete } =
-    useIsDoingLevelContext();
+  const { gameState, setGameState } = useIsDoingLevelContext();
 
+  // reset code on idle
   useEffect(() => {
-    if (!isLevelComplete) {
+    console.log(gameState);
+    if (gameState == GameState.IDLE) {
       setCurrentCode(startCode);
     }
-  }, [isLevelComplete]);
+  }, [gameState]);
 
   return (
     <Editor
@@ -40,14 +42,13 @@ const CodeEditorWorkingSpace = ({
       onChange={(value) => {
         setCurrentCode(value ?? "");
         if (value?.trim() == solution) {
-          setIsLevelComplete(true);
-          setIsDoingLevel(false);
+          setGameState(GameState.COMPLETED);
         }
       }}
       onMount={(editor) => {
         editor.onKeyDown(() => {
           if (editor.hasTextFocus()) {
-            setIsDoingLevel(true);
+            setGameState(GameState.INPROGRESS);
           }
         });
 
@@ -57,12 +58,16 @@ const CodeEditorWorkingSpace = ({
             event.secondarySelections.some((selection) => !selection.isEmpty());
 
           if (hasSelection) {
-            setIsDoingLevel(true);
+            setGameState(GameState.INPROGRESS);
           }
         });
 
         editor.onDidBlurEditorWidget(() => {
-          setIsDoingLevel(false);
+          setGameState((currentGameState) =>
+            currentGameState === GameState.INPROGRESS
+              ? GameState.IDLE
+              : currentGameState,
+          );
         });
       }}
     ></Editor>

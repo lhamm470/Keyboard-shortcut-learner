@@ -1,22 +1,18 @@
 import { useEffect, useState } from "react";
 import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
 import { useStopwatch } from "react-timer-hook";
+import { GameState } from "../../IsDoingLevelContext";
 
-type StopwatchType = {
-  onTimeLimitExceeded: () => void;
-};
-
-const Stopwatch = ({ onTimeLimitExceeded }: StopwatchType) => {
+const Stopwatch = () => {
   const {
-    isDoingLevel,
-    setIsDoingLevel,
     completionTimeMinutes,
     completionTimeSeconds,
     completionTimeMilliseconds,
     setCompletionTimeMinutes,
     setCompletionTimeSeconds,
     setCompletionTimeMilliseconds,
-    isLevelComplete,
+    gameState,
+    setGameState,
   } = useIsDoingLevelContext();
 
   const {
@@ -35,33 +31,44 @@ const Stopwatch = ({ onTimeLimitExceeded }: StopwatchType) => {
     interval: 20,
   });
 
-  const displayMinutes = isDoingLevel ? minutes : completionTimeMinutes;
-  const displaySeconds = isDoingLevel ? seconds : completionTimeSeconds;
-  const displayMilliseconds = isDoingLevel
-    ? milliseconds
-    : completionTimeMilliseconds;
+  const displayMinutes =
+    gameState == GameState.INPROGRESS ? minutes : completionTimeMinutes;
+  const displaySeconds =
+    gameState == GameState.INPROGRESS ? seconds : completionTimeSeconds;
+  const displayMilliseconds =
+    gameState == GameState.INPROGRESS
+      ? milliseconds
+      : completionTimeMilliseconds;
 
   useEffect(() => {
-    if (isDoingLevel) {
+    if (gameState == GameState.INPROGRESS) {
+      // on level started
       start();
-    } else {
+    } else if (gameState == GameState.IDLE) {
+      // on level cancelled/closed completion modal
+      pause();
+      setCompletionTimeMinutes(0);
+      setCompletionTimeSeconds(0);
+      setCompletionTimeMilliseconds(0);
+      reset(undefined, false);
+    } else if (gameState == GameState.COMPLETED) {
+      // on level completed
       pause();
       setCompletionTimeMinutes(minutes);
       setCompletionTimeSeconds(seconds);
       setCompletionTimeMilliseconds(milliseconds);
     }
-  }, [isDoingLevel]);
+  }, [gameState]);
 
-  useEffect(() => {
-    if (!isLevelComplete) {
-      reset(undefined, false);
-    }
-  }, [isLevelComplete]);
-
+  // on timeout
   useEffect(() => {
     if (totalSeconds >= 5940) {
       pause();
-      onTimeLimitExceeded();
+      setCompletionTimeMinutes(0);
+      setCompletionTimeSeconds(0);
+      setCompletionTimeMilliseconds(0);
+      reset(undefined, false);
+      setGameState(GameState.IDLE);
     }
   }, [totalSeconds]);
 
