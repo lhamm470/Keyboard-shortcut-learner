@@ -67,6 +67,7 @@ const ResultsLeaderboard = () => {
 
         <Modal.Footer>
           <Button onClick={() => setGameState(GameState.IDLE)}>Close</Button>
+          <Button>Next Page</Button>
         </Modal.Footer>
       </ModalContent>
     </>

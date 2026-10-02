@@ -2,6 +2,12 @@ import { useEffect, useLayoutEffect } from "react";
 import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
 import { useStopwatch } from "react-timer-hook";
 import { GameState } from "../../IsDoingLevelContext";
+import styled from "styled-components";
+
+const TimeDisplay = styled.p`
+  margin: 0;
+  line-height: 1.2;
+`;
 
 const Stopwatch = () => {
   const {
@@ -74,13 +80,13 @@ const Stopwatch = () => {
 
   return (
     <div>
-      <p>
+      <TimeDisplay>
         {displayMinutes.toString().padStart(2, "0")}:
         {displaySeconds.toString().padStart(2, "0")}:
         {Math.floor(displayMilliseconds / 10)
           .toString()
           .padStart(2, "0")}
-      </p>
+      </TimeDisplay>
     </div>
   );
 };

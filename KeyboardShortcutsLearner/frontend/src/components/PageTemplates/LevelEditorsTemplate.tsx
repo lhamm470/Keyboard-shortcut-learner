@@ -11,9 +11,13 @@ type LevelEditorsTemplate = {
 };
 
 const Editors = styled.div`
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
+
+  > div {
+    min-width: 0;
+  }
 `;
 
 const EditorHeading = styled.span`

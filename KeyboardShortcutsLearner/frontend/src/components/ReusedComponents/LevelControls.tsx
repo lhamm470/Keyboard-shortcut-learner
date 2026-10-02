@@ -13,7 +13,6 @@ const LevelControls = () => {
 
   return (
     <div>
-      <Button>Cancel</Button>
       <Button onClick={() => setShow(true)}>How To Play</Button>
       <HowToPlayModal show={show} setShow={setShow}></HowToPlayModal>
     </div>

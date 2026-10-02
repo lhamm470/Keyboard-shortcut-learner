@@ -29,7 +29,7 @@ const CodeEditorWorkingSpace = ({
   return (
     <Editor
       height="60vh"
-      width="40vw"
+      width="100%"
       theme="vs-dark"
       defaultLanguage="javascript"
       defaultValue={currentCode}

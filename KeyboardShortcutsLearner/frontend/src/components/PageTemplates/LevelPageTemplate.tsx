@@ -6,6 +6,14 @@ import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
 import Stopwatch from "../ReusedComponents/Stopwatch";
 import ControlsHeading from "../ReusedComponents/ControlsHeading";
 import ResultsLeaderboard from "../ReusedComponents/ResultsLeaderboard";
+import styled from "styled-components";
+
+const PageContainer = styled.main`
+  width: min(100%, 1440px);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 48px);
+  box-sizing: border-box;
+`;
 
 type LevelPageTemplateProps = {
   description: string;
@@ -19,12 +27,8 @@ const LevelPageTemplate = ({
   startCode,
 }: LevelPageTemplateProps) => {
   const [currentCode, setCurrentCode] = useState(startCode);
-  const [currentStopwatchText, setCurrentStopwatchText] = useState(
-    "Press Start to begin.",
-  );
-  const { isDoingLevel, setIsDoingLevel } = useIsDoingLevelContext();
   return (
-    <>
+    <PageContainer>
       <p>{description}</p>
       {/* Relevant keyboard shortcuts */}
       <ControlsHeading></ControlsHeading>
@@ -35,7 +39,7 @@ const LevelPageTemplate = ({
         setCurrentCode={setCurrentCode}
       ></LevelEditorsTemplate>
       <ResultsLeaderboard></ResultsLeaderboard>
-    </>
+    </PageContainer>
   );
 };
 

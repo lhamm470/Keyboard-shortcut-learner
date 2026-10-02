@@ -5,7 +5,7 @@ const CodeEditorSolution = ({ solution }: { solution: string }) => {
   return (
     <Editor
       height="60vh"
-      width="40vw"
+      width="100%"
       theme="vs-dark"
       defaultLanguage="javascript"
       defaultValue={solution}
