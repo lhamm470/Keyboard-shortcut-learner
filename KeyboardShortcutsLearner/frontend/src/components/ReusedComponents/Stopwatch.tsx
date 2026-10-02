@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
 import { useStopwatch } from "react-timer-hook";
 import { GameState } from "../../IsDoingLevelContext";
@@ -32,15 +32,15 @@ const Stopwatch = () => {
   });
 
   const displayMinutes =
-    gameState == GameState.INPROGRESS ? minutes : completionTimeMinutes;
+    gameState === GameState.INPROGRESS ? minutes : completionTimeMinutes;
   const displaySeconds =
-    gameState == GameState.INPROGRESS ? seconds : completionTimeSeconds;
+    gameState === GameState.INPROGRESS ? seconds : completionTimeSeconds;
   const displayMilliseconds =
-    gameState == GameState.INPROGRESS
+    gameState === GameState.INPROGRESS
       ? milliseconds
       : completionTimeMilliseconds;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (gameState == GameState.INPROGRESS) {
       // on level started
       start();
