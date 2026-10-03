@@ -6,6 +6,7 @@ type LevelDataType = {
     minutes: number;
     seconds: number;
     milliseconds: number;
+    totalMilliseconds: number;
   };
   solutionCode: string;
   startCode: string;

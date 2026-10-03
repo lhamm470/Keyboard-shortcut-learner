@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
 import { GameState } from "../../IsDoingLevelContext";
+import { LevelDataType } from "./CustomTypes";
 
 const ModalContent = styled(Modal)`
   .modal-content {
@@ -19,7 +20,11 @@ const ModalContent = styled(Modal)`
   }
 `;
 
-const ResultsLeaderboard = () => {
+type ResultsLeaderboardProps = {
+  levelData: LevelDataType;
+};
+
+const ResultsLeaderboard = ({ levelData }: ResultsLeaderboardProps) => {
   const [show, setShow] = useState(false);
   const {
     completionTimeMinutes,
@@ -37,6 +42,14 @@ const ResultsLeaderboard = () => {
     }
   }, [gameState]);
 
+  const completionMilliseconds: number =
+    completionTimeMinutes * 60000 +
+    completionTimeSeconds * 1000 +
+    completionTimeMilliseconds;
+
+  const beatTargetTime: boolean =
+    completionMilliseconds <= levelData.targetTime.totalMilliseconds;
+
   return (
     <>
       <ModalContent
@@ -47,13 +60,25 @@ const ResultsLeaderboard = () => {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>Level Complete! New Personal Best!</Modal.Title>
+          <Modal.Title>
+            {beatTargetTime ? "Level complete!" : "Level failed!"}
+          </Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <h3>You won!</h3>
           <p>
-            Your time was{" "}
+            Target time:{" "}
+            {levelData.targetTime.minutes == 0
+              ? ""
+              : levelData.targetTime.minutes.toString() + "m"}
+            {levelData.targetTime.seconds.toString()}s{" "}
+            {Math.floor(levelData.targetTime.milliseconds / 10)
+              .toString()
+              .padStart(2, "0")}
+            ms.
+          </p>
+          <p>
+            Your time:{" "}
             {completionTimeMinutes == 0
               ? ""
               : completionTimeMinutes.toString() + "m"}

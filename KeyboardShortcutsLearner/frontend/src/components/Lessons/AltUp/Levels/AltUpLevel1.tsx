@@ -1,10 +1,19 @@
 import { FaArrowDown, FaArrowUp } from "react-icons/fa6";
 
 const AltUpLevel1 = () => {
+  const minutes = 0;
+  const seconds = 5;
+  const milliseconds = 500;
+
   return {
     description:
       "The rocket launch countdown has been jumbled up! Rearrange the countdown into descending order, ending with the liftoff message.",
-    targetTime: { minutes: 0, seconds: 5, milliseconds: 500 },
+    targetTime: {
+      minutes,
+      seconds,
+      milliseconds,
+      totalMilliseconds: minutes * 60_000 + seconds * 1_000 + milliseconds,
+    },
     startCode: `
 Console.log("3");
 Console.log("4");

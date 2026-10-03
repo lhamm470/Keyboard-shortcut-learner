@@ -36,7 +36,7 @@ const LevelPageTemplate = ({ levelData }: LevelPageTemplateProps) => {
         setCurrentCode={setCurrentCode}
       ></LevelEditorsTemplate>
       <EndOfPageNavigation></EndOfPageNavigation>
-      <ResultsLeaderboard></ResultsLeaderboard>
+      <ResultsLeaderboard levelData={levelData}></ResultsLeaderboard>
     </PageContainer>
   );
 };

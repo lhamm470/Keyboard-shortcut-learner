@@ -17,8 +17,10 @@ const PossibleKeyboardShortcutsHelp = () => {
   const popover = (
     <Popover id="help-popover">
       <Popover.Body>
-        Keyboard shortcuts that could be used for this level. Shortcuts marked
-        with <GoldStar /> are highly recommended.
+        Shortcuts marked with <GoldStar /> are highly recommended for this
+        level.
+        <br />
+        Other shortcuts may also be useful.
       </Popover.Body>
     </Popover>
   );
