@@ -5,11 +5,7 @@ import CodeEditorWorkingSpace from "./components/CodeEditors/CodeEditorWorkingSp
 import CodeEditorSolution from "./components/CodeEditors/CodeEditorSolution";
 import { useIsDoingLevelContext } from "./UseIsDoingLevelContext";
 import LevelPageTemplate from "./components/ComponentTemplates/LevelPageTemplate";
-import {
-  AltUpLevel1Description,
-  AltUpLevel1SolutionCode,
-  AltUpLevel1StartCode,
-} from "./components/Lessons/AltUp/Levels/AltUpLevel1";
+import { AltUpLevel1 } from "./components/Lessons/AltUp/Levels/AltUpLevel1";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -49,9 +45,9 @@ function App() {
     <>
       <GlobalStyle />
       <LevelPageTemplate
-        description={AltUpLevel1Description()}
-        solutionCode={AltUpLevel1SolutionCode()}
-        startCode={AltUpLevel1StartCode()}
+        description={AltUpLevel1().description}
+        solutionCode={AltUpLevel1().solutionCode}
+        startCode={AltUpLevel1().startCode}
       ></LevelPageTemplate>
     </>
   );

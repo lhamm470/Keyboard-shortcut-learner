@@ -79,15 +79,13 @@ const Stopwatch = () => {
   }, [totalSeconds]);
 
   return (
-    <div>
-      <TimeDisplay>
-        {displayMinutes.toString().padStart(2, "0")}:
-        {displaySeconds.toString().padStart(2, "0")}:
-        {Math.floor(displayMilliseconds / 10)
-          .toString()
-          .padStart(2, "0")}
-      </TimeDisplay>
-    </div>
+    <TimeDisplay>
+      {displayMinutes.toString().padStart(2, "0")}:
+      {displaySeconds.toString().padStart(2, "0")}:
+      {Math.floor(displayMilliseconds / 10)
+        .toString()
+        .padStart(2, "0")}
+    </TimeDisplay>
   );
 };
 
