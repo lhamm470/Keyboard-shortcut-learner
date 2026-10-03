@@ -45,8 +45,13 @@ const CodeEditorWorkingSpace = ({
         }
       }}
       onMount={(editor) => {
-        editor.onKeyDown(() => {
-          if (editor.hasTextFocus()) {
+        editor.onKeyDown((e) => {
+          if (
+            editor.hasTextFocus() &&
+            !["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(
+              e.browserEvent.key,
+            )
+          ) {
             setGameState(GameState.INPROGRESS);
           }
         });
