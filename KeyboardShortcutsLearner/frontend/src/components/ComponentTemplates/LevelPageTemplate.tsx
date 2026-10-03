@@ -19,20 +19,23 @@ const PageContainer = styled.main`
 `;
 
 type LevelPageTemplateProps = {
-  description: string;
-  solutionCode: string;
-  startCode: string;
+  levelData: {
+    description: string;
+    targetTime: {
+      minutes: number;
+      seconds: number;
+      milliseconds: number;
+    };
+    solutionCode: string;
+    startCode: string;
+  };
 };
 
-const LevelPageTemplate = ({
-  description,
-  solutionCode,
-  startCode,
-}: LevelPageTemplateProps) => {
-  const [currentCode, setCurrentCode] = useState(startCode);
+const LevelPageTemplate = ({ levelData }: LevelPageTemplateProps) => {
+  const [currentCode, setCurrentCode] = useState(levelData.startCode);
   return (
     <PageContainer>
-      <p>{description}</p>
+      <p>{levelData.description}</p>
       {/* Relevant keyboard shortcuts */}
       <RelevantKeyboardShortcuts
         shortcuts={[
@@ -46,9 +49,8 @@ const LevelPageTemplate = ({
       ></RelevantKeyboardShortcuts>
       <ControlsHeading></ControlsHeading>
       <LevelEditorsTemplate
-        solutionCode={solutionCode}
+        levelData={levelData}
         currentCode={currentCode}
-        startCode={startCode}
         setCurrentCode={setCurrentCode}
       ></LevelEditorsTemplate>
       <EndOfPageNavigation></EndOfPageNavigation>

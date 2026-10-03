@@ -4,16 +4,23 @@ import { useEffect } from "react";
 import { GameState } from "../../IsDoingLevelContext";
 
 type CodeEditorWorkingSpaceProps = {
-  solution: string;
+  levelData: {
+    description: string;
+    targetTime: {
+      minutes: number;
+      seconds: number;
+      milliseconds: number;
+    };
+    solutionCode: string;
+    startCode: string;
+  };
   currentCode: string;
-  startCode: string;
   setCurrentCode: (code: string) => void;
 };
 
 const CodeEditorWorkingSpace = ({
-  solution,
+  levelData,
   currentCode,
-  startCode,
   setCurrentCode: setCurrentCode,
 }: CodeEditorWorkingSpaceProps) => {
   const { gameState, setGameState } = useIsDoingLevelContext();
@@ -22,7 +29,7 @@ const CodeEditorWorkingSpace = ({
   useEffect(() => {
     console.log(gameState);
     if (gameState == GameState.IDLE) {
-      setCurrentCode(startCode);
+      setCurrentCode(levelData.startCode);
     }
   }, [gameState]);
 
@@ -41,7 +48,7 @@ const CodeEditorWorkingSpace = ({
       }
       onChange={(value) => {
         setCurrentCode(value ?? "");
-        if (value?.trim() == solution) {
+        if (value?.trim() == levelData.solutionCode) {
           setGameState(GameState.COMPLETED);
         }
       }}

@@ -2,7 +2,7 @@ const AltUpLevel1 = () => {
   return {
     description:
       "The rocket launch countdown has been jumbled up! Rearrange the countdown into descending order, ending with the liftoff message.",
-    targetTime: { minutes: 20, seconds: 10, milliseconds: 110 },
+    targetTime: { minutes: 0, seconds: 5, milliseconds: 500 },
     startCode: `
 Console.log("3");
 Console.log("4");

@@ -3,10 +3,18 @@ import CodeEditorWorkingSpace from "../CodeEditors/CodeEditorWorkingSpace";
 import LevelControls from "../ReusedComponents/LevelControls";
 import styled from "styled-components";
 
-type LevelEditorsTemplate = {
-  solutionCode: string;
+type LevelEditorsTemplateProps = {
+  levelData: {
+    description: string;
+    targetTime: {
+      minutes: number;
+      seconds: number;
+      milliseconds: number;
+    };
+    solutionCode: string;
+    startCode: string;
+  };
   currentCode: string;
-  startCode: string;
   setCurrentCode: (code: string) => void;
 };
 
@@ -29,24 +37,22 @@ const EditorHeading = styled.span`
 `;
 
 const levelEditorsTemplate = ({
-  solutionCode,
+  levelData,
   currentCode,
-  startCode,
   setCurrentCode: setCurrentCode,
-}: LevelEditorsTemplate) => {
+}: LevelEditorsTemplateProps) => {
   return (
     <>
       <Editors>
         <div>
           <CodeEditorWorkingSpace
-            solution={solutionCode}
+            levelData={levelData}
             currentCode={currentCode}
-            startCode={startCode}
             setCurrentCode={setCurrentCode}
           ></CodeEditorWorkingSpace>
         </div>
         <div>
-          <CodeEditorSolution solution={solutionCode}></CodeEditorSolution>
+          <CodeEditorSolution levelData={levelData}></CodeEditorSolution>
         </div>
       </Editors>
     </>

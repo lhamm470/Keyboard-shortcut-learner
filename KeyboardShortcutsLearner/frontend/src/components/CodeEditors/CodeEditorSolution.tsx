@@ -1,15 +1,28 @@
 import Editor from "@monaco-editor/react";
 import { useState, useContext } from "react";
 
-const CodeEditorSolution = ({ solution }: { solution: string }) => {
+type CodeEditorSolutionProps = {
+  levelData: {
+    description: string;
+    targetTime: {
+      minutes: number;
+      seconds: number;
+      milliseconds: number;
+    };
+    solutionCode: string;
+    startCode: string;
+  };
+};
+
+const CodeEditorSolution = ({ levelData }: CodeEditorSolutionProps) => {
   return (
     <Editor
       height="60vh"
       width="100%"
       theme="vs-dark"
       defaultLanguage="javascript"
-      defaultValue={solution}
-      value={solution}
+      defaultValue={levelData.solutionCode}
+      value={levelData.solutionCode}
       options={{
         readOnly: true,
       }}

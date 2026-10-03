@@ -44,11 +44,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <LevelPageTemplate
-        description={AltUpLevel1().description}
-        solutionCode={AltUpLevel1().solutionCode}
-        startCode={AltUpLevel1().startCode}
-      ></LevelPageTemplate>
+      <LevelPageTemplate levelData={AltUpLevel1()}></LevelPageTemplate>
     </>
   );
 }
