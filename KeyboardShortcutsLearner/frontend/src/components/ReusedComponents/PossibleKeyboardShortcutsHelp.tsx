@@ -13,12 +13,12 @@ const GoldStar = styled(FontAwesomeIcon).attrs({
   color: #ffd700;
 `;
 
-const RelevantKeyboardShortcutsHelp = () => {
+const PossibleKeyboardShortcutsHelp = () => {
   const popover = (
     <Popover id="help-popover">
       <Popover.Body>
-        Keyboard shortcuts that could be relevant for this level. Shortcuts
-        marked with <GoldStar /> are highly recommended.
+        Keyboard shortcuts that could be used for this level. Shortcuts marked
+        with <GoldStar /> are highly recommended.
       </Popover.Body>
     </Popover>
   );
@@ -37,4 +37,4 @@ const RelevantKeyboardShortcutsHelp = () => {
   );
 };
 
-export default RelevantKeyboardShortcutsHelp;
+export default PossibleKeyboardShortcutsHelp;

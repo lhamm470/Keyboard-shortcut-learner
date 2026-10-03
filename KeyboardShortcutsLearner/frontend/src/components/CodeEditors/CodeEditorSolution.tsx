@@ -1,6 +1,6 @@
 import Editor from "@monaco-editor/react";
 import { useState, useContext } from "react";
-import { LevelDataType } from "../ReusedComponents/LevelDataType";
+import { LevelDataType } from "../ReusedComponents/CustomTypes";
 
 type CodeEditorSolutionProps = {
   levelData: LevelDataType;

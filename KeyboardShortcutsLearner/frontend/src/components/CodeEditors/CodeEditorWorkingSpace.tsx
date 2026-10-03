@@ -2,7 +2,7 @@ import Editor from "@monaco-editor/react";
 import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
 import { useEffect } from "react";
 import { GameState } from "../../IsDoingLevelContext";
-import { LevelDataType } from "../ReusedComponents/LevelDataType";
+import { LevelDataType } from "../ReusedComponents/CustomTypes";
 
 type CodeEditorWorkingSpaceProps = {
   levelData: LevelDataType;

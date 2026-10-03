@@ -2,7 +2,7 @@ import CodeEditorSolution from "../CodeEditors/CodeEditorSolution";
 import CodeEditorWorkingSpace from "../CodeEditors/CodeEditorWorkingSpace";
 import LevelControls from "../ReusedComponents/LevelControls";
 import styled from "styled-components";
-import { LevelDataType } from "../ReusedComponents/LevelDataType";
+import { LevelDataType } from "../ReusedComponents/CustomTypes";
 
 type LevelEditorsTemplateProps = {
   levelData: LevelDataType;

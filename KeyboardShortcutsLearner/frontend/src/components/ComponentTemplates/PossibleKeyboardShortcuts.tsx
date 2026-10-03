@@ -2,19 +2,15 @@ import { Fragment, useState, type ReactNode } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import RelevantKeyboardShortcutsHelp from "../ReusedComponents/RelevantKeyboardShortcutsHelp";
+import PossibleKeyboardShortcutsHelp from "../ReusedComponents/PossibleKeyboardShortcutsHelp.tsx";
 import ActionButton from "../ReusedComponents/ActionButton.tsx";
+import { KeyboardShortcutTag } from "../ReusedComponents/CustomTypes.tsx";
 
-type Shortcut = {
-  name: string;
-  keys: ReactNode[];
+type PossibleKeyboardShortcutsProps = {
+  shortcuts: KeyboardShortcutTag[];
 };
 
-type RelevantKeyboardShortcutsProps = {
-  shortcuts: Shortcut[];
-};
-
-const RelevantKeyboardShortcutsDropdownButton = styled(ActionButton)`
+const PossibleKeyboardShortcutsDropdownButton = styled(ActionButton)`
   margin-bottom: 10px;
   margin-right: 5px;
 `;
@@ -63,19 +59,19 @@ const GoldStar = styled(FontAwesomeIcon).attrs({
   color: #ffd700;
 `;
 
-const RelevantKeyboardShortcuts = ({
+const PossibleKeyboardShortcuts = ({
   shortcuts,
-}: RelevantKeyboardShortcutsProps) => {
+}: PossibleKeyboardShortcutsProps) => {
   const [showShortcutTags, setShowShortcutTags] = useState(false);
 
   return (
     <>
-      <RelevantKeyboardShortcutsDropdownButton
+      <PossibleKeyboardShortcutsDropdownButton
         onClick={() => setShowShortcutTags(!showShortcutTags)}
       >
-        Relevant Keyboard Shortcuts ▼
-      </RelevantKeyboardShortcutsDropdownButton>
-      <RelevantKeyboardShortcutsHelp></RelevantKeyboardShortcutsHelp>
+        Possible Keyboard Shortcuts ▼
+      </PossibleKeyboardShortcutsDropdownButton>
+      <PossibleKeyboardShortcutsHelp></PossibleKeyboardShortcutsHelp>
 
       {showShortcutTags && (
         <ShortcutsArea>
@@ -96,4 +92,4 @@ const RelevantKeyboardShortcuts = ({
   );
 };
 
-export default RelevantKeyboardShortcuts;
+export default PossibleKeyboardShortcuts;

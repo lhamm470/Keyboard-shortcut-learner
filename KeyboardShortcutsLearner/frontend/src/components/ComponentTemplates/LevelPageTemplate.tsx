@@ -7,10 +7,8 @@ import ControlsHeading from "../ReusedComponents/ControlsHeading";
 import ResultsLeaderboard from "../ReusedComponents/ResultsLeaderboard";
 import styled from "styled-components";
 import EndOfPageNavigation from "../ReusedComponents/EndOfPageNavigation";
-import RelevantKeyboardShortcuts from "./RelevantKeyboardShortcuts";
-import { FaWindows } from "react-icons/fa";
-import { FaArrowUp } from "react-icons/fa6";
-import { LevelDataType } from "../ReusedComponents/LevelDataType";
+import PossibleKeyboardShortcuts from "./PossibleKeyboardShortcuts";
+import { LevelDataType } from "../ReusedComponents/CustomTypes";
 
 const PageContainer = styled.main`
   width: min(100%, 1440px);
@@ -28,17 +26,9 @@ const LevelPageTemplate = ({ levelData }: LevelPageTemplateProps) => {
   return (
     <PageContainer>
       <p>{levelData.description}</p>
-      {/* Relevant keyboard shortcuts */}
-      <RelevantKeyboardShortcuts
-        shortcuts={[
-          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
-          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
-          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
-          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
-          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
-          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
-        ]}
-      ></RelevantKeyboardShortcuts>
+      <PossibleKeyboardShortcuts
+        shortcuts={levelData.possibleKeyboardShortcuts}
+      ></PossibleKeyboardShortcuts>
       <ControlsHeading></ControlsHeading>
       <LevelEditorsTemplate
         levelData={levelData}

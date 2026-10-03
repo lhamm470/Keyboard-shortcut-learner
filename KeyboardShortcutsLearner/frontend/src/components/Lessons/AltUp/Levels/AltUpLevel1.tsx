@@ -1,3 +1,5 @@
+import { FaArrowDown, FaArrowUp } from "react-icons/fa6";
+
 const AltUpLevel1 = () => {
   return {
     description:
@@ -21,6 +23,36 @@ Console.log("2");
 Console.log("1");
 Console.log("Blast off!");
     `.trim(),
+    possibleKeyboardShortcuts: [
+      {
+        name: "Alt Up/Down",
+        keys: [
+          "alt",
+          <>
+            <FaArrowUp /> / <FaArrowDown />
+          </>,
+        ],
+      },
+      {
+        name: "Shift Alt Up/Down",
+        keys: [
+          "shift",
+          "alt",
+          <>
+            <FaArrowUp /> / <FaArrowDown />
+          </>,
+        ],
+      },
+      {
+        name: "Shift Up/Down",
+        keys: [
+          "shift",
+          <>
+            <FaArrowUp /> / <FaArrowDown />
+          </>,
+        ],
+      },
+    ],
   };
 };
 
