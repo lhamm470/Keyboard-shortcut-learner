@@ -1,17 +1,9 @@
 import Editor from "@monaco-editor/react";
 import { useState, useContext } from "react";
+import { LevelDataType } from "../ReusedComponents/LevelDataType";
 
 type CodeEditorSolutionProps = {
-  levelData: {
-    description: string;
-    targetTime: {
-      minutes: number;
-      seconds: number;
-      milliseconds: number;
-    };
-    solutionCode: string;
-    startCode: string;
-  };
+  levelData: LevelDataType;
 };
 
 const CodeEditorSolution = ({ levelData }: CodeEditorSolutionProps) => {

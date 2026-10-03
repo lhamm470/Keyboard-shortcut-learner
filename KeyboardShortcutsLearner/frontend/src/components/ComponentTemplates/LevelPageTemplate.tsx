@@ -10,6 +10,7 @@ import EndOfPageNavigation from "../ReusedComponents/EndOfPageNavigation";
 import RelevantKeyboardShortcuts from "./RelevantKeyboardShortcuts";
 import { FaWindows } from "react-icons/fa";
 import { FaArrowUp } from "react-icons/fa6";
+import { LevelDataType } from "../ReusedComponents/LevelDataType";
 
 const PageContainer = styled.main`
   width: min(100%, 1440px);
@@ -19,16 +20,7 @@ const PageContainer = styled.main`
 `;
 
 type LevelPageTemplateProps = {
-  levelData: {
-    description: string;
-    targetTime: {
-      minutes: number;
-      seconds: number;
-      milliseconds: number;
-    };
-    solutionCode: string;
-    startCode: string;
-  };
+  levelData: LevelDataType;
 };
 
 const LevelPageTemplate = ({ levelData }: LevelPageTemplateProps) => {

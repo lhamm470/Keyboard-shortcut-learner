@@ -2,18 +2,10 @@ import CodeEditorSolution from "../CodeEditors/CodeEditorSolution";
 import CodeEditorWorkingSpace from "../CodeEditors/CodeEditorWorkingSpace";
 import LevelControls from "../ReusedComponents/LevelControls";
 import styled from "styled-components";
+import { LevelDataType } from "../ReusedComponents/LevelDataType";
 
 type LevelEditorsTemplateProps = {
-  levelData: {
-    description: string;
-    targetTime: {
-      minutes: number;
-      seconds: number;
-      milliseconds: number;
-    };
-    solutionCode: string;
-    startCode: string;
-  };
+  levelData: LevelDataType;
   currentCode: string;
   setCurrentCode: (code: string) => void;
 };

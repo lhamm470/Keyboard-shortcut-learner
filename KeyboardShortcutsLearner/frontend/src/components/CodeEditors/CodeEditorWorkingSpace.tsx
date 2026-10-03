@@ -2,18 +2,10 @@ import Editor from "@monaco-editor/react";
 import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
 import { useEffect } from "react";
 import { GameState } from "../../IsDoingLevelContext";
+import { LevelDataType } from "../ReusedComponents/LevelDataType";
 
 type CodeEditorWorkingSpaceProps = {
-  levelData: {
-    description: string;
-    targetTime: {
-      minutes: number;
-      seconds: number;
-      milliseconds: number;
-    };
-    solutionCode: string;
-    startCode: string;
-  };
+  levelData: LevelDataType;
   currentCode: string;
   setCurrentCode: (code: string) => void;
 };
