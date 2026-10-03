@@ -1,4 +1,3 @@
-import AltUpLevel1Page from "../Lessons/AltUp/Levels/AltUpLevel1Page";
 import LevelControls from "../ReusedComponents/LevelControls";
 import LevelEditorsTemplate from "./LevelEditorsTemplate";
 import { useState } from "react";
@@ -7,6 +6,10 @@ import Stopwatch from "../ReusedComponents/Stopwatch";
 import ControlsHeading from "../ReusedComponents/ControlsHeading";
 import ResultsLeaderboard from "../ReusedComponents/ResultsLeaderboard";
 import styled from "styled-components";
+import EndOfPageNavigation from "../ReusedComponents/EndOfPageNavigation";
+import RelevantKeyboardShortcuts from "./RelevantKeyboardShortcuts";
+import { FaWindows } from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa6";
 
 const PageContainer = styled.main`
   width: min(100%, 1440px);
@@ -31,6 +34,16 @@ const LevelPageTemplate = ({
     <PageContainer>
       <p>{description}</p>
       {/* Relevant keyboard shortcuts */}
+      <RelevantKeyboardShortcuts
+        shortcuts={[
+          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
+          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
+          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
+          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
+          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
+          { name: "Alt Up", keys: ["Alt", <FaArrowUp />] },
+        ]}
+      ></RelevantKeyboardShortcuts>
       <ControlsHeading></ControlsHeading>
       <LevelEditorsTemplate
         solutionCode={solutionCode}
@@ -38,6 +51,7 @@ const LevelPageTemplate = ({
         startCode={startCode}
         setCurrentCode={setCurrentCode}
       ></LevelEditorsTemplate>
+      <EndOfPageNavigation></EndOfPageNavigation>
       <ResultsLeaderboard></ResultsLeaderboard>
     </PageContainer>
   );

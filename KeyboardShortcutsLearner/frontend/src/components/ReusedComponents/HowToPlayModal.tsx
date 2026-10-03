@@ -40,10 +40,16 @@ const HowToPlayModal = ({ show, setShow }: HowToPlayModalProps) => {
 
         <Modal.Body>
           <p>
-            Modify the code in the Starting Code editor on the left to match the
-            goal code on the right. Use keyboard shortcuts to finish as quickly
-            as possible. Beat the target time to complete the level.
+            Update the code in the left editor to match the goal code on the
+            right. Use keyboard shortcuts to finish as quickly as possible. Beat
+            the target time to complete the level.
           </p>
+          <p>
+            To start, position the cursor anywhere inside the editor. The next
+            keyboard input (or mouse selection) will automatically start the
+            timer.
+          </p>
+          <p>Leaving focus of the editor will cancel the current attempt.</p>
         </Modal.Body>
 
         <Modal.Footer>

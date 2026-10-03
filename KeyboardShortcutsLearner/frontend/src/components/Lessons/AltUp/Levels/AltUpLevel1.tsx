@@ -1,3 +1,9 @@
+const AltUpLevel1Description = () => {
+  return `
+The rocket launch countdown has been jumbled up! Rearrange the countdown into descending order, ending with the liftoff message.
+  `;
+};
+
 const AltUpLevel1StartCode = () => {
   return `
 Console.log("3");
@@ -22,4 +28,8 @@ Console.log("Blast off!");
     `.trim();
 };
 
-export { AltUpLevel1StartCode, AltUpLevel1SolutionCode };
+export {
+  AltUpLevel1Description,
+  AltUpLevel1StartCode,
+  AltUpLevel1SolutionCode,
+};

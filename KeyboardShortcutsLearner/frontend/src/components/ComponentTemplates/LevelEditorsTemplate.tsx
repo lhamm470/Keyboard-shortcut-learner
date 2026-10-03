@@ -14,6 +14,8 @@ const Editors = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
   > div {
     min-width: 0;
@@ -36,7 +38,6 @@ const levelEditorsTemplate = ({
     <>
       <Editors>
         <div>
-          <EditorHeading>Starting Code</EditorHeading>
           <CodeEditorWorkingSpace
             solution={solutionCode}
             currentCode={currentCode}
@@ -45,7 +46,6 @@ const levelEditorsTemplate = ({
           ></CodeEditorWorkingSpace>
         </div>
         <div>
-          <EditorHeading>Goal</EditorHeading>
           <CodeEditorSolution solution={solutionCode}></CodeEditorSolution>
         </div>
       </Editors>
