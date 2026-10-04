@@ -2,6 +2,7 @@ import { useState } from "react";
 import LevelPageTemplate from "./LevelPageTemplate";
 import { LessonDataType } from "../ReusedComponents/CustomTypes";
 import ModuleNavigationTemplate from "./ModuleNavigationTemplate";
+import EndOfPageNavigation from "../ReusedComponents/EndOfPageNavigation";
 
 type LessonPageTemplateProps = {
   lessonData: LessonDataType;
@@ -24,6 +25,11 @@ const LessonPageTemplate = ({ lessonData }: LessonPageTemplateProps) => {
           )
         );
       })}
+      <EndOfPageNavigation
+        selectedTab={selectedTab}
+        setSelectedTab={setSelectedTab}
+        lessonData={lessonData}
+      ></EndOfPageNavigation>
     </>
   );
 };

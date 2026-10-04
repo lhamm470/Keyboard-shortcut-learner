@@ -36,7 +36,6 @@ const LevelPageTemplate = ({ levelData }: LevelPageTemplateProps) => {
         currentCode={currentCode}
         setCurrentCode={setCurrentCode}
       ></LevelEditorsTemplate>
-      <EndOfPageNavigation></EndOfPageNavigation>
       <ResultsLeaderboard levelData={levelData}></ResultsLeaderboard>
     </PageContainer>
   );
