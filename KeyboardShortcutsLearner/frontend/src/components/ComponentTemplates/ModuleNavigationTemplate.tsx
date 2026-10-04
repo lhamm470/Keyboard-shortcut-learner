@@ -5,10 +5,11 @@ const ModuleNavigationSC = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 60px;
   border-bottom: 2px solid black;
   overflow: hidden;
   padding-left: 10px;
+  justify-content: center;
 `;
 
 const ModuleTabSC = styled.button<{ $active: boolean }>`
@@ -22,7 +23,7 @@ const ModuleTabSC = styled.button<{ $active: boolean }>`
   width: 100px;
   padding: 5px;
   transition: background-color 0.2s ease;
-  top: ${({ $active }) => ($active ? "20px" : "52px")};
+  top: ${({ $active }) => ($active ? "30px" : "52px")};
   justify-content: center;
   font-size: 1.6em;
 

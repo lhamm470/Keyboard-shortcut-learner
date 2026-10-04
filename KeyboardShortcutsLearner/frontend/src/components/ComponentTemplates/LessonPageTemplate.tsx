@@ -4,6 +4,7 @@ import { LessonDataType } from "../ReusedComponents/CustomTypes";
 import ModuleNavigationTemplate from "./ModuleNavigationTemplate";
 import EndOfPageNavigation from "../ReusedComponents/EndOfPageNavigation";
 import styled from "styled-components";
+import LessonTitleTemplate from "./LessonTitleTemplate";
 
 type LessonPageTemplateProps = {
   lessonData: LessonDataType;
@@ -21,6 +22,7 @@ const LessonPageTemplate = ({ lessonData }: LessonPageTemplateProps) => {
 
   return (
     <PageContainer>
+      <LessonTitleTemplate lessonData={lessonData} />
       <ModuleNavigationTemplate
         selectedTab={selectedTab}
         setSelectedTab={setSelectedTab}

@@ -4,6 +4,7 @@ type LessonDataType = {
   learnModules: number;
   levelModules: number;
   levelsData: LevelDataType[];
+  shortcut: string;
 };
 
 type LevelDataType = {

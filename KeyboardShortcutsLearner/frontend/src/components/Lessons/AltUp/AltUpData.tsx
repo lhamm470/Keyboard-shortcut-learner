@@ -6,6 +6,7 @@ const AltUpData = (): LessonDataType => {
     learnModules: 1,
     levelModules: 1,
     levelsData: [AltUpLevel1()],
+    shortcut: "Alt Up/Down",
   };
 };
 
