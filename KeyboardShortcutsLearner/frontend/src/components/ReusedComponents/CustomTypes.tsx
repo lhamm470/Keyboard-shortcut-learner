@@ -1,5 +1,11 @@
 import { type ReactNode } from "react";
 
+type LessonDataType = {
+  learnModules: number;
+  levelModules: number;
+  levelsData: LevelDataType[];
+};
+
 type LevelDataType = {
   description: string;
   targetTime: {
@@ -18,4 +24,4 @@ type KeyboardShortcutTag = {
   keys: ReactNode[];
 };
 
-export { LevelDataType, KeyboardShortcutTag };
+export { LessonDataType, LevelDataType, KeyboardShortcutTag };

@@ -1,11 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
-import CodeEditorWorkingSpace from "./components/CodeEditors/CodeEditorWorkingSpace";
-import CodeEditorSolution from "./components/CodeEditors/CodeEditorSolution";
-import { useIsDoingLevelContext } from "./UseIsDoingLevelContext";
 import LevelPageTemplate from "./components/ComponentTemplates/LevelPageTemplate";
 import { AltUpLevel1 } from "./components/Lessons/AltUp/Levels/AltUpLevel1";
+import LessonPageTemplate from "./components/ComponentTemplates/LessonPageTemplate";
+import AltUpData from "./components/Lessons/AltUp/AltUpData";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -44,7 +43,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <LevelPageTemplate levelData={AltUpLevel1()}></LevelPageTemplate>
+      <LessonPageTemplate lessonData={AltUpData()}></LessonPageTemplate>
     </>
   );
 }

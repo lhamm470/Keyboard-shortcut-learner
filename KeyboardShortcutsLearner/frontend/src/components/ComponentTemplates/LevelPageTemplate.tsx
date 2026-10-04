@@ -1,4 +1,3 @@
-import LevelControls from "../ReusedComponents/LevelControls";
 import LevelEditorsTemplate from "./LevelEditorsTemplate";
 import { useState } from "react";
 import { useIsDoingLevelContext } from "../../UseIsDoingLevelContext";
@@ -9,6 +8,7 @@ import styled from "styled-components";
 import EndOfPageNavigation from "../ReusedComponents/EndOfPageNavigation";
 import PossibleKeyboardShortcuts from "./PossibleKeyboardShortcuts";
 import { LevelDataType } from "../ReusedComponents/CustomTypes";
+import ModuleNavigationTemplate from "./ModuleNavigationTemplate";
 
 const PageContainer = styled.main`
   width: min(100%, 1440px);
@@ -25,6 +25,7 @@ const LevelPageTemplate = ({ levelData }: LevelPageTemplateProps) => {
   const [currentCode, setCurrentCode] = useState(levelData.startCode);
   return (
     <PageContainer>
+      <p style={{ textDecoration: "underline" }}>Level description</p>
       <p>{levelData.description}</p>
       <PossibleKeyboardShortcuts
         shortcuts={levelData.possibleKeyboardShortcuts}
