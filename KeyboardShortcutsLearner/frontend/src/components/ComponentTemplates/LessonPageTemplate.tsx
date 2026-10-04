@@ -13,7 +13,7 @@ type LessonPageTemplateProps = {
 const PageContainer = styled.main`
   width: min(100%, 1440px);
   margin-inline: auto;
-  padding-inline: clamp(16px, 4vw, 48px);
+  padding-inline: clamp(24px, 6vw, 80px);
   box-sizing: border-box;
 `;
 

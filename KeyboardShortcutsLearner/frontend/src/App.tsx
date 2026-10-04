@@ -5,6 +5,8 @@ import LevelPageTemplate from "./components/ComponentTemplates/LevelPageTemplate
 import { AltUpLevel1 } from "./components/Lessons/AltUp/Levels/AltUpLevel1";
 import LessonPageTemplate from "./components/ComponentTemplates/LessonPageTemplate";
 import AltUpData from "./components/Lessons/AltUp/AltUpData";
+import SideNavButton from "./components/ReusedComponents/SideNavButton";
+import SideNav from "./components/ReusedComponents/SideNav";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -43,6 +45,8 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <SideNavButton />
+      <SideNav />
       <LessonPageTemplate lessonData={AltUpData()}></LessonPageTemplate>
     </>
   );
