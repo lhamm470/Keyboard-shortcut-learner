@@ -14,7 +14,6 @@ const Editors = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   margin-top: 20px;
-  margin-bottom: 20px;
 
   > div {
     min-width: 0;

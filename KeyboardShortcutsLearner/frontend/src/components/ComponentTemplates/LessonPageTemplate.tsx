@@ -3,16 +3,24 @@ import LevelPageTemplate from "./LevelPageTemplate";
 import { LessonDataType } from "../ReusedComponents/CustomTypes";
 import ModuleNavigationTemplate from "./ModuleNavigationTemplate";
 import EndOfPageNavigation from "../ReusedComponents/EndOfPageNavigation";
+import styled from "styled-components";
 
 type LessonPageTemplateProps = {
   lessonData: LessonDataType;
 };
 
+const PageContainer = styled.main`
+  width: min(100%, 1440px);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 48px);
+  box-sizing: border-box;
+`;
+
 const LessonPageTemplate = ({ lessonData }: LessonPageTemplateProps) => {
   const [selectedTab, setSelectedTab] = useState(1);
 
   return (
-    <>
+    <PageContainer>
       <ModuleNavigationTemplate
         selectedTab={selectedTab}
         setSelectedTab={setSelectedTab}
@@ -30,7 +38,7 @@ const LessonPageTemplate = ({ lessonData }: LessonPageTemplateProps) => {
         setSelectedTab={setSelectedTab}
         lessonData={lessonData}
       ></EndOfPageNavigation>
-    </>
+    </PageContainer>
   );
 };
 

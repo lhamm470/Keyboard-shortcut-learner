@@ -19,12 +19,14 @@ const ModuleTabSC = styled.button<{ $active: boolean }>`
   color: black;
   border-radius: 8px;
   border: none;
-  width: fit-content;
+  width: 100px;
   padding: 5px;
   transition: background-color 0.2s ease;
-  top: ${({ $active }) => ($active ? "16px" : "30px")};
+  top: ${({ $active }) => ($active ? "20px" : "52px")};
+  justify-content: center;
+  font-size: 1.6em;
 
-  height: 60px;
+  height: 100px;
 
   &:active {
     background-color: #686868;

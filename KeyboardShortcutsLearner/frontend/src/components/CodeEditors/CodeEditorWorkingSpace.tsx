@@ -33,11 +33,6 @@ const CodeEditorWorkingSpace = ({
       defaultLanguage="javascript"
       defaultValue={currentCode}
       value={currentCode}
-      options={
-        {
-          //readOnly: !isDoingLevel,
-        }
-      }
       onChange={(value) => {
         setCurrentCode(value ?? "");
         if (value?.trim() == levelData.solutionCode) {
