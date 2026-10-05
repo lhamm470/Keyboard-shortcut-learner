@@ -5,6 +5,7 @@ import ModuleNavigationTemplate from "./ModuleNavigationTemplate";
 import EndOfPageNavigation from "../ReusedComponents/EndOfPageNavigation";
 import styled from "styled-components";
 import LessonTitleTemplate from "./LessonTitleTemplate";
+import codeDemoVideo from "../../assets/Videos/code-demo-1.mp4";
 
 type LessonPageTemplateProps = {
   lessonData: LessonDataType;
@@ -28,6 +29,16 @@ const LessonPageTemplate = ({ lessonData }: LessonPageTemplateProps) => {
         setSelectedTab={setSelectedTab}
         lessonData={lessonData}
       ></ModuleNavigationTemplate>
+      {selectedTab == 1 && (
+        <video
+          src={codeDemoVideo}
+          style={{ width: "400px" }}
+          controls
+          loop
+          muted
+          playsInline
+        />
+      )}
       {lessonData.levelsData.map((_, i) => {
         return (
           selectedTab == lessonData.learnModules + i + 1 && (
