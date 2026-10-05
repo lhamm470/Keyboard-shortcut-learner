@@ -19,13 +19,15 @@ const SideNavButtonSC = styled.button`
   }
 `;
 
-const SideNavButton = () => {
+type SideNavButtonProps = {
+  setIsSideNavOpen: (isSideNavOpen: boolean) => void;
+};
+
+const SideNavButton = ({ setIsSideNavOpen }: SideNavButtonProps) => {
   return (
     <SideNavButtonSC
       onClick={() => {
-        const sideNav = document.getElementById("sideNav");
-
-        if (sideNav) sideNav.style.width = "250px";
+        setIsSideNavOpen(true);
       }}
     >
       <GiHamburgerMenu size={22} />

@@ -1,32 +1,20 @@
 import styled from "styled-components";
 import { IoMdClose } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import SideNavButton from "./SideNavButton";
 
-const SideNavSC = styled.div`
+const SideNavSC = styled.div<{ $isSideNavOpen: boolean }>`
   height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: #111; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-
-  /* The navigation menu links */
-  & a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-
-  /* When you mouse over the navigation links, change their color */
-  & a:hover {
-    color: #f1f1f1;
-  }
+  padding-top: 90px; /* Place content 60px from the top */
+  width: ${({ $isSideNavOpen }) => ($isSideNavOpen ? "250px" : "0")};
+  transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
 
   /* Position and style the close button (top right corner) */
   & .closebtn {
@@ -46,18 +34,55 @@ const SideNavSC = styled.div`
   }
 `;
 
+const SideNavLink = styled.button<{ $isSideNavOpen: boolean }>`
+  background-color: transparent;
+  border: none;
+  border-radius: 99px;
+  transition: 0.3s ease;
+  padding: 8px 0px 8px 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  text-decoration: none;
+  font-size: 25px;
+  display: flex;
+  width: calc(100% - 32px);
+  transform: ${({ $isSideNavOpen }) =>
+    $isSideNavOpen ? "translateX(0)" : "translateX(-250px)"};
+
+  &:hover {
+    background-color: #474747;
+    color: #f1f1f1;
+  }
+`;
+
 const SideNav = () => {
+  const navigate = useNavigate();
+  const [isSideNavOpen, setIsSideNavOpen] = useState(false);
   return (
-    <SideNavSC id="sideNav">
-      <IoMdClose
-        onClick={() => {
-          const sideNav = document.getElementById("sideNav");
-          if (sideNav) sideNav.style.width = "0px";
-        }}
-        size={40}
-        className="closebtn"
-      ></IoMdClose>
-    </SideNavSC>
+    <>
+      <SideNavButton setIsSideNavOpen={setIsSideNavOpen} />
+      <SideNavSC id="sideNav" $isSideNavOpen={isSideNavOpen}>
+        <IoMdClose
+          onClick={() => {
+            setIsSideNavOpen(false);
+          }}
+          size={40}
+          className="closebtn"
+        ></IoMdClose>
+        <SideNavLink
+          $isSideNavOpen={isSideNavOpen}
+          onClick={() => navigate("/")}
+        >
+          Home
+        </SideNavLink>
+        <SideNavLink
+          $isSideNavOpen={isSideNavOpen}
+          onClick={() => navigate("/alt-up")}
+        >
+          Alt Up
+        </SideNavLink>
+      </SideNavSC>
+    </>
   );
 };
 

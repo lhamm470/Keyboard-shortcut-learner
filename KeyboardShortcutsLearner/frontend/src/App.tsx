@@ -1,12 +1,8 @@
-import { useState } from "react";
-import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
-import LevelPageTemplate from "./components/ComponentTemplates/LevelPageTemplate";
-import { AltUpLevel1 } from "./components/Lessons/AltUp/Levels/AltUpLevel1";
 import LessonPageTemplate from "./components/ComponentTemplates/LessonPageTemplate";
 import AltUpData from "./components/Lessons/AltUp/AltUpData";
-import SideNavButton from "./components/ReusedComponents/SideNavButton";
 import SideNav from "./components/ReusedComponents/SideNav";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -43,12 +39,20 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <>
+    <Router>
       <GlobalStyle />
-      <SideNavButton />
       <SideNav />
-      <LessonPageTemplate lessonData={AltUpData()}></LessonPageTemplate>
-    </>
+
+      <Routes>
+        <Route path="/" element={<p>home page</p>} />
+        <Route
+          path="/alt-up"
+          element={
+            <LessonPageTemplate lessonData={AltUpData()}></LessonPageTemplate>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 

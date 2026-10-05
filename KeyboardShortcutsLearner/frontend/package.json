@@ -19,6 +19,7 @@
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.8",
     "react-icons": "^5.7.0",
+    "react-router-dom": "^7.18.4",
     "react-timer-hook": "^4.0.6",
     "styled-components": "^6.5.3"
   },
