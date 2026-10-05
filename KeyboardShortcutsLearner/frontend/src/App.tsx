@@ -3,6 +3,7 @@ import LessonPageTemplate from "./components/ComponentTemplates/LessonPageTempla
 import AltUpData from "./components/Lessons/AltUp/AltUpData";
 import SideNav from "./components/ReusedComponents/SideNav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RecordingEditor from "./components/RecordingEditor";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -52,6 +53,7 @@ function App() {
           }
         />
       </Routes>
+      {/* <RecordingEditor /> */}
     </Router>
   );
 }
