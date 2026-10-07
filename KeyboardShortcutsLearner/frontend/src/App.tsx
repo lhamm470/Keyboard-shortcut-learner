@@ -4,7 +4,7 @@ import AltUpData from "./components/Lessons/AltUp/AltUpData";
 import SideNav from "./components/ReusedComponents/SideNav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RecordingEditor from "./components/RecordingEditor";
-import VisualKeyboard from "./components/ReusedComponents/VisualKeyboard";
+import InputDisplay from "./components/ReusedComponents/InputDisplay";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -44,7 +44,7 @@ function App() {
     <Router>
       <GlobalStyle />
       <SideNav />
-      <VisualKeyboard />
+      <InputDisplay />
 
       <Routes>
         <Route path="/" element={<p>home page</p>} />

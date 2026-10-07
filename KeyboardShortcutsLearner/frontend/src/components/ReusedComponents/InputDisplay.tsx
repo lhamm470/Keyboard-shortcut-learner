@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa6";
 import { RiDragMove2Fill } from "react-icons/ri";
 import { RxKeyboard } from "react-icons/rx";
+import { PiMouseLeftClickFill, PiMouseRightClickFill } from "react-icons/pi";
 
 const HeldKeysContainer = styled.div<{ $position: { x: number; y: number } }>`
   display: inline-flex;
@@ -24,13 +25,18 @@ const HeldKeysContainer = styled.div<{ $position: { x: number; y: number } }>`
   z-index: 9999;
 `;
 
-const HeldKeysDragArea = styled.div`
-  cursor: grab;
+const HeldKeysDragArea = styled.div<{ $dragging: boolean }>`
+  cursor: ${({ $dragging }) => ($dragging ? "grabbing" : "grab")};
   user-select: none;
   touch-action: none;
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 5px;
+  padding-right: 9px;
+  border-radius: 10px;
+  background-color: rgba(60, 60, 64, 0.7);
+  border: 1px solid rgba(128, 128, 131, 0.7);
 `;
 
 const HeldKeysArea = styled.div`
@@ -45,7 +51,7 @@ const HeldKeysArea = styled.div`
   box-shadow: 0 2px 0 var(--shortcut-shadow, #9baec1);
   color: var(--shortcut-foreground, #2b333c);
   z-index: 9999;
-  cursor: grab;
+  cursor: inherit;
   user-select: none;
   touch-action: none;
 `;
@@ -61,9 +67,11 @@ const KeyCap = styled.kbd`
 `;
 
 import { useHeldKeys } from "@tanstack/react-hotkeys";
+import InputDisplayButton from "./InputDisplayButton";
 
-function VisualKeyboard() {
+function InputDisplay() {
   const heldKeys = useHeldKeys();
+  const [showInputDisplay, setShowInputDisplay] = useState(false);
 
   const keyMap: Record<string, React.ReactNode> = {
     ArrowUp: <FaArrowUp />,
@@ -97,69 +105,50 @@ function VisualKeyboard() {
     setDragging(false);
   };
 
+  useEffect(() => {
+    document.body.style.cursor = dragging ? "grabbing" : "";
+
+    return () => {
+      document.body.style.cursor = "";
+    };
+  }, [dragging]);
+
   return (
     <>
-      <HeldKeysContainer
-        $position={position}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-      >
-        <HeldKeysDragArea>
-          <RiDragMove2Fill size={40} color="white" />
-          <RxKeyboard size={50} color="white" />
-        </HeldKeysDragArea>
-        {heldKeys.length > 0 && (
-          <HeldKeysArea>
-            {heldKeys.map((key: string, index: number) => {
-              return (
-                <Fragment key={index}>
-                  <KeyCap key={`${key}-${index}`}>{keyMap[key] ?? key}</KeyCap>
-                  {index < heldKeys.length - 1 && <IoAddSharp size={20} />}
-                </Fragment>
-              );
-            })}
-          </HeldKeysArea>
-        )}
-      </HeldKeysContainer>
+      <InputDisplayButton
+        showInputDisplay={showInputDisplay}
+        setShowInputDisplay={setShowInputDisplay}
+      />
+      {showInputDisplay && (
+        <HeldKeysContainer
+          $position={position}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+        >
+          <HeldKeysDragArea $dragging={dragging}>
+            <RiDragMove2Fill size={40} color="white" />
+            <RxKeyboard size={50} color="white" />
+          </HeldKeysDragArea>
+          {heldKeys.length > 0 && (
+            <HeldKeysArea>
+              {heldKeys.map((key: string, index: number) => {
+                return (
+                  <Fragment key={index}>
+                    <KeyCap key={`${key}-${index}`}>
+                      {keyMap[key] ?? key}
+                    </KeyCap>
+                    {index < heldKeys.length - 1 && <IoAddSharp size={20} />}
+                  </Fragment>
+                );
+              })}
+            </HeldKeysArea>
+          )}
+        </HeldKeysContainer>
+      )}
     </>
   );
 }
 
-// const VisualKeyboard = () => {
-//   const [heldKeys, setHeldKeys] = useState<Set<string>>(new Set());
-
-//   useEffect(() => {
-//     const handleKeyDown = (event: KeyboardEvent) => {
-//       setHeldKeys((prev) => {
-//         const next = new Set(prev);
-//         next.add(event.key);
-//         return next;
-//       });
-//     };
-
-//     const handleKeyUp = (event: KeyboardEvent) => {
-//       setHeldKeys((prev) => {
-//         const next = new Set(prev);
-//         next.delete(event.key);
-//         return next;
-//       });
-//     };
-
-//     window.addEventListener("keydown", handleKeyDown);
-//     window.addEventListener("keyup", handleKeyUp);
-
-//     return () => {
-//       window.removeEventListener("keydown", handleKeyDown);
-//       window.removeEventListener("keyup", handleKeyUp);
-//     };
-//   }, []);
-
-//   return (
-//     <VisualInputsSC>
-//       {[...heldKeys].length > 0 ? [...heldKeys].join(" + ") : "No keys pressed"}
-//     </VisualInputsSC>
-//   );
-// };
-
-export default VisualKeyboard;
+export default InputDisplay;

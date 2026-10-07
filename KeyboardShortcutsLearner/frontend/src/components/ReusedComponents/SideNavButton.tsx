@@ -29,6 +29,7 @@ const SideNavButton = ({ setIsSideNavOpen }: SideNavButtonProps) => {
       onClick={() => {
         setIsSideNavOpen(true);
       }}
+      title="Open navigation menu"
     >
       <GiHamburgerMenu size={22} />
     </SideNavButtonSC>
