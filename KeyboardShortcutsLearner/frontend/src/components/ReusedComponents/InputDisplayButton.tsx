@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { RxKeyboard } from "react-icons/rx";
 
 const InputDisplayButtonSC = styled.button`
-  background-color: gray;
+  background-color: #464646;
   border-radius: 99px;
   width: 70px;
   height: 70px;
   position: fixed;
-  bottom: 50px;
+  bottom: 40px;
+  left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +17,7 @@ const InputDisplayButtonSC = styled.button`
   transition: background-color 0.2s ease;
 
   &:active {
-    background-color: #6c6c6c;
+    background-color: #3b3b3b;
   }
 `;
 

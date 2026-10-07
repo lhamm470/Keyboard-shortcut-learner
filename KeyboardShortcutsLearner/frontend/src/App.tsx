@@ -12,11 +12,11 @@ const GlobalStyle = createGlobalStyle`
     --page-foreground: #f3f1ed;
     --action-background: #80bfff;
     --action-foreground: #14283c;
-    --shortcut-background: #e3e8ee;
-    --shortcut-border: #7c9bbd;
-    --shortcut-shadow: #9baec1;
+    --shortcut-background: #c4c8cd;
+    --shortcut-border: #728ead;
+    --shortcut-shadow: #8999aa;
     --shortcut-foreground: #2b333c;
-    --key-background: #fbfcff;
+    --key-background: #e5e6e9;
     --key-border: #b7c2cd;
     --key-shadow: #c8d1da;
     --key-foreground: #252b32;
@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 
   html, body, #root {
     margin: 0;
-    padding: 10px;
+    //padding: 10px;
     min-height: 100%;
     background-color: var(--page-background);
     color: var(--page-foreground);
@@ -43,7 +43,7 @@ function App() {
   return (
     <Router>
       <GlobalStyle />
-      <SideNav />
+      {/* <SideNav />
       <InputDisplay />
 
       <Routes>
@@ -54,8 +54,8 @@ function App() {
             <LessonPageTemplate lessonData={AltUpData()}></LessonPageTemplate>
           }
         />
-      </Routes>
-      {/* <RecordingEditor /> */}
+      </Routes> */}
+      <RecordingEditor />
     </Router>
   );
 }

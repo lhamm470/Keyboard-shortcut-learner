@@ -1,4 +1,5 @@
 import Editor from "@monaco-editor/react";
+import InputDisplay from "./ReusedComponents/InputDisplay";
 
 const RecordingEditor = () => {
   return (
@@ -26,6 +27,7 @@ Console.log("hi");
 Console.log("hi");
         `.trim()}
       />
+      <InputDisplay />
     </div>
   );
 };
