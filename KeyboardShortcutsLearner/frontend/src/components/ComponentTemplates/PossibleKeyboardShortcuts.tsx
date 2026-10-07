@@ -5,6 +5,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import PossibleKeyboardShortcutsHelp from "../ReusedComponents/PossibleKeyboardShortcutsHelp.tsx";
 import ActionButton from "../ReusedComponents/ActionButton.tsx";
 import { KeyboardShortcutTag } from "../ReusedComponents/CustomTypes.tsx";
+import { IoAddSharp } from "react-icons/io5";
 
 type PossibleKeyboardShortcutsProps = {
   shortcuts: KeyboardShortcutTag[];
@@ -81,7 +82,7 @@ const PossibleKeyboardShortcuts = ({
                 <Fragment key={index}>
                   {i == 0 && index == 0 && <GoldStar />}
                   <KeyCap>{key}</KeyCap>
-                  {index < shortcut.keys.length - 1 && <Plus>+</Plus>}
+                  {index < shortcut.keys.length - 1 && <IoAddSharp size={20} />}
                 </Fragment>
               ))}
             </ShortcutTag>

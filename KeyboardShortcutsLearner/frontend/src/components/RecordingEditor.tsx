@@ -14,6 +14,17 @@ const RecordingEditor = () => {
         height="100%"
         language="javascript"
         theme="vs-dark"
+        defaultValue={`
+Console.log("hi");
+Console.log("hi");
+Console.log("hi");
+Console.log("hi");
+Console.log("hello world");
+Console.log("hi");
+Console.log("hi");
+Console.log("hi");
+Console.log("hi");
+        `.trim()}
       />
     </div>
   );

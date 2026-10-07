@@ -32,7 +32,7 @@ const LessonPageTemplate = ({ lessonData }: LessonPageTemplateProps) => {
       {selectedTab == 1 && (
         <video
           src={codeDemoVideo}
-          style={{ width: "400px" }}
+          style={{ width: "35%" }}
           controls
           loop
           muted

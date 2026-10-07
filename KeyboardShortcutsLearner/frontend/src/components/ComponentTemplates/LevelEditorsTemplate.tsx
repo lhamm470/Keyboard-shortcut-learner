@@ -2,6 +2,7 @@ import CodeEditorSolution from "../CodeEditors/CodeEditorSolution";
 import CodeEditorWorkingSpace from "../CodeEditors/CodeEditorWorkingSpace";
 import styled from "styled-components";
 import { LevelDataType } from "../ReusedComponents/CustomTypes";
+import codeDemoVideo from "../../assets/Videos/code-demo-1.mp4";
 
 type LevelEditorsTemplateProps = {
   levelData: LevelDataType;
@@ -40,6 +41,7 @@ const levelEditorsTemplate = ({
             currentCode={currentCode}
             setCurrentCode={setCurrentCode}
           ></CodeEditorWorkingSpace>
+          {/* <video src={codeDemoVideo} controls loop muted playsInline /> */}
         </div>
         <div>
           <CodeEditorSolution levelData={levelData}></CodeEditorSolution>

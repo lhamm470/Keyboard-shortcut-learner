@@ -13,7 +13,7 @@
     "windows": [
       {
         "title": "Keyboard-shortcut-learner",
-        "width": 800,
+        "width": 500,
         "height": 600,
         "resizable": false,
         "fullscreen": false,
