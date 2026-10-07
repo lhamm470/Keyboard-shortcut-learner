@@ -17,6 +17,7 @@ type LevelDataType = {
   };
   solutionCode: string;
   startCode: string;
+  exampleSolution: string;
   possibleKeyboardShortcuts: KeyboardShortcutTag[];
 };
 

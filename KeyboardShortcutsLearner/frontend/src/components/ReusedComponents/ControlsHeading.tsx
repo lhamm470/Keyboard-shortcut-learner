@@ -5,6 +5,8 @@ import HowToPlayModal from "./HowToPlayModal";
 import { useState } from "react";
 import TargetTime from "./TargetTime";
 import { AltUpLevel1 } from "../Lessons/AltUp/Levels/AltUpLevel1";
+import ExampleSolutionTemplate from "../ComponentTemplates/ExampleSolutionTemplate";
+import { LessonDataType, LevelDataType } from "./CustomTypes";
 
 const ControlsHeadingSC = styled.div`
   display: flex;
@@ -12,18 +14,36 @@ const ControlsHeadingSC = styled.div`
   gap: 10px;
 `;
 
-const ControlsHeading = () => {
-  const [show, setShow] = useState(false);
+type ControlsHeadingProps = {
+  levelData: LevelDataType;
+};
+
+const ControlsHeading = ({ levelData }: ControlsHeadingProps) => {
+  const [showHowToPlay, setShowHowToPlay] = useState(false);
+  const [showExampleSolution, setShowExampleSolution] = useState(false);
 
   return (
     <ControlsHeadingSC>
-      <ActionButton onClick={() => setShow(true)}>How To Play</ActionButton>
+      <ActionButton onClick={() => setShowHowToPlay(true)}>
+        How To Play
+      </ActionButton>
+      <ActionButton onClick={() => setShowExampleSolution(true)}>
+        View Example Solution
+      </ActionButton>
       <TargetTime
         targetTimeMinutes={AltUpLevel1().targetTime.minutes}
         targetTimeSeconds={AltUpLevel1().targetTime.seconds}
         targetTimeMilliseconds={AltUpLevel1().targetTime.milliseconds}
       ></TargetTime>
-      <HowToPlayModal show={show} setShow={setShow}></HowToPlayModal>
+      <HowToPlayModal
+        show={showHowToPlay}
+        setShow={setShowHowToPlay}
+      ></HowToPlayModal>
+      <ExampleSolutionTemplate
+        levelData={levelData}
+        showExampleSolution={showExampleSolution}
+        setShowExampleSolution={setShowExampleSolution}
+      />
       <Stopwatch></Stopwatch>
     </ControlsHeadingSC>
   );

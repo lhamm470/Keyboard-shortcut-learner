@@ -5,6 +5,7 @@ import ResultsLeaderboard from "../ReusedComponents/ResultsLeaderboard";
 import PossibleKeyboardShortcuts from "./PossibleKeyboardShortcuts";
 import { LevelDataType } from "../ReusedComponents/CustomTypes";
 import styled from "styled-components";
+import ExampleSolutionTemplate from "./ExampleSolutionTemplate";
 
 type LevelPageTemplateProps = {
   levelData: LevelDataType;
@@ -23,12 +24,13 @@ const LevelPageTemplate = ({ levelData }: LevelPageTemplateProps) => {
       <PossibleKeyboardShortcuts
         shortcuts={levelData.possibleKeyboardShortcuts}
       ></PossibleKeyboardShortcuts>
-      <ControlsHeading></ControlsHeading>
+      <ControlsHeading levelData={levelData}></ControlsHeading>
       <LevelEditorsTemplate
         levelData={levelData}
         currentCode={currentCode}
         setCurrentCode={setCurrentCode}
       ></LevelEditorsTemplate>
+      <ExampleSolutionTemplate levelData={levelData} />
       <ResultsLeaderboard levelData={levelData}></ResultsLeaderboard>
     </LevelPageTemplateSC>
   );
