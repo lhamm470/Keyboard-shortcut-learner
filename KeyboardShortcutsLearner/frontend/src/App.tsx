@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 
   html, body, #root {
     margin: 0;
-    //padding: 10px;
+    padding: 10px;
     min-height: 100%;
     background-color: var(--page-background);
     color: var(--page-foreground);
@@ -43,7 +43,7 @@ function App() {
   return (
     <Router>
       <GlobalStyle />
-      {/* <SideNav />
+      <SideNav />
       <InputDisplay />
 
       <Routes>
@@ -54,8 +54,8 @@ function App() {
             <LessonPageTemplate lessonData={AltUpData()}></LessonPageTemplate>
           }
         />
-      </Routes> */}
-      <RecordingEditor />
+      </Routes>
+      {/* <RecordingEditor /> */}
     </Router>
   );
 }

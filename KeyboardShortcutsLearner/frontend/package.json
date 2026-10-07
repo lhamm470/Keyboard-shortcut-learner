@@ -24,6 +24,7 @@
     "react-icons": "^5.7.0",
     "react-router-dom": "^7.18.4",
     "react-timer-hook": "^4.0.6",
+    "show-keystrokes": "^1.1.2",
     "styled-components": "^6.5.3"
   },
   "devDependencies": {
