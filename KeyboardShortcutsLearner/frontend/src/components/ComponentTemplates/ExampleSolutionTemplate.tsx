@@ -14,7 +14,7 @@ const ExampleSolutionContainer = styled.div<{
 `;
 
 const VideoTitleBar = styled.div`
-  background-color: #4d4b4b;
+  background-color: #706e6e;
   height: 30px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -23,9 +23,10 @@ const VideoTitleBar = styled.div`
 `;
 
 const CloseButton = styled(IoMdClose)`
-  color: #aba9a9;
+  color: #c9c8c8;
   display: flex;
   margin-left: auto;
+  margin-right: 3px;
   font-size: 36px;
   height: 30px;
   width: 30px;
@@ -37,16 +38,16 @@ const CloseButton = styled(IoMdClose)`
 `;
 
 const VideoSC = styled.video`
-  display: block;
-  border-left: 8px solid #4d4b4b;
-  border-bottom: 8px solid #4d4b4b;
-  border-right: 8px solid #4d4b4b;
+  margin-top: -2px;
+  border-left: 8px solid #706e6e;
+  border-bottom: 8px solid #706e6e;
+  border-right: 8px solid #706e6e;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 `;
 
 const WindowTitleText = styled.p`
-  color: #aba9a9;
+  color: #c9c8c8;
   margin: 0;
   margin-left: 8px;
 `;
