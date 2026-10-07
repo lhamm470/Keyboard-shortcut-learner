@@ -30,7 +30,6 @@ const LevelPageTemplate = ({ levelData }: LevelPageTemplateProps) => {
         currentCode={currentCode}
         setCurrentCode={setCurrentCode}
       ></LevelEditorsTemplate>
-      <ExampleSolutionTemplate levelData={levelData} />
       <ResultsLeaderboard levelData={levelData}></ResultsLeaderboard>
     </LevelPageTemplateSC>
   );
