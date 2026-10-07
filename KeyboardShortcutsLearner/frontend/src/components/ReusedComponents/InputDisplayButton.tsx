@@ -6,10 +6,8 @@ const InputDisplayButtonSC = styled.button`
   border-radius: 99px;
   width: 70px;
   height: 70px;
-  position: fixed;
-  bottom: 40px;
-  left: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: none;
@@ -18,6 +16,20 @@ const InputDisplayButtonSC = styled.button`
 
   &:active {
     background-color: #3b3b3b;
+  }
+
+  & * {
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+
+  & .status {
+    bottom: 4px;
+  }
+
+  & .icon {
+    top: 4px;
   }
 `;
 
@@ -35,9 +47,10 @@ const InputDisplayButton = ({
       onClick={() => {
         setShowInputDisplay(!showInputDisplay);
       }}
-      title="Show/hide input display"
+      title="Show/hide keystroke display"
     >
-      <RxKeyboard size={40} />
+      <RxKeyboard size={50} className="icon" />
+      <p className="status">{showInputDisplay ? "ON" : "OFF"}</p>
     </InputDisplayButtonSC>
   );
 };
