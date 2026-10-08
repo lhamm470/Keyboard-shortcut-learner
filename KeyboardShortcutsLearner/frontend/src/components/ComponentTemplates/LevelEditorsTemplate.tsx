@@ -41,7 +41,6 @@ const levelEditorsTemplate = ({
             currentCode={currentCode}
             setCurrentCode={setCurrentCode}
           ></CodeEditorWorkingSpace>
-          {/* <video src={codeDemoVideo} controls loop muted playsInline /> */}
         </div>
         <div>
           <CodeEditorSolution levelData={levelData}></CodeEditorSolution>

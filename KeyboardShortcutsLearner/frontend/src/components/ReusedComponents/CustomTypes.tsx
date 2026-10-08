@@ -4,6 +4,7 @@ type LessonDataType = {
   learnModules: number;
   levelModules: number;
   levelsData: LevelDataType[];
+  learnData: LearnDataType;
   shortcut: string;
 };
 
@@ -21,9 +22,14 @@ type LevelDataType = {
   possibleKeyboardShortcuts: KeyboardShortcutTag[];
 };
 
+type LearnDataType = {
+  content: string[];
+  demonstrationClips: string[];
+};
+
 type KeyboardShortcutTag = {
   name: string;
   keys: ReactNode[];
 };
 
-export { LessonDataType, LevelDataType, KeyboardShortcutTag };
+export { LessonDataType, LevelDataType, LearnDataType, KeyboardShortcutTag };

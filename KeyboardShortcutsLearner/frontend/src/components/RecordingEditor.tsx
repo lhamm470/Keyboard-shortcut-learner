@@ -1,5 +1,6 @@
 import Editor from "@monaco-editor/react";
 import InputDisplay from "./ReusedComponents/InputDisplay";
+import { AltUpLevel1 } from "./Lessons/AltUp/Levels/AltUpLevel1";
 
 const RecordingEditor = () => {
   return (
@@ -15,17 +16,7 @@ const RecordingEditor = () => {
         height="100%"
         language="javascript"
         theme="vs-dark"
-        defaultValue={`
-Console.log("hi");
-Console.log("hi");
-Console.log("hi");
-Console.log("hi");
-Console.log("hello world");
-Console.log("hi");
-Console.log("hi");
-Console.log("hi");
-Console.log("hi");
-        `.trim()}
+        defaultValue={AltUpLevel1().startCode}
       />
       <InputDisplay />
     </div>

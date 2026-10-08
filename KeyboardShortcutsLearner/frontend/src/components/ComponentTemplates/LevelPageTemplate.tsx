@@ -11,9 +11,7 @@ type LevelPageTemplateProps = {
   levelData: LevelDataType;
 };
 
-const LevelPageTemplateSC = styled.div`
-  margin-top: 10px;
-`;
+const LevelPageTemplateSC = styled.div``;
 
 const LevelPageTemplate = ({ levelData }: LevelPageTemplateProps) => {
   const [currentCode, setCurrentCode] = useState(levelData.startCode);

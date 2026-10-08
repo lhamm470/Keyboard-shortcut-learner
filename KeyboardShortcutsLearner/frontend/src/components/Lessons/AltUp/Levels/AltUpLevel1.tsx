@@ -1,5 +1,5 @@
 import { FaArrowDown, FaArrowUp } from "react-icons/fa6";
-import codeDemoVideo from "../../../../assets/Videos/code-demo-1.mp4";
+import altUpExampleSolution from "../../../../assets/Videos/altUpExampleSolution.mp4";
 
 const AltUpLevel1 = () => {
   const minutes = 0;
@@ -33,7 +33,7 @@ Console.log("2");
 Console.log("1");
 Console.log("Blast off!");
     `.trim(),
-    exampleSolution: codeDemoVideo,
+    exampleSolution: altUpExampleSolution,
     possibleKeyboardShortcuts: [
       {
         name: "Alt Up/Down",

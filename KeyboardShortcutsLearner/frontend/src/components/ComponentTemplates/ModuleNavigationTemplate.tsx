@@ -10,6 +10,7 @@ const ModuleNavigationSC = styled.div`
   overflow: hidden;
   padding-left: 10px;
   justify-content: center;
+  margin-bottom: 15px;
 `;
 
 const ModuleTabSC = styled.button<{ $active: boolean }>`
