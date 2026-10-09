@@ -16,7 +16,24 @@ const RecordingEditor = () => {
         height="100%"
         language="javascript"
         theme="vs-dark"
-        defaultValue={AltUpLevel1().startCode}
+        defaultValue={`
+Console.log("0");
+Console.log("0");
+Console.log("0");
+
+Console.log("111111");
+
+Console.log("0");
+Console.log("0");
+Console.log("0");
+
+Console.log("333333333333");
+Console.log("333333333333");
+Console.log("333333333333");
+
+Console.log("0");
+Console.log("0");
+        `}
       />
       <InputDisplay />
     </div>

@@ -23,7 +23,8 @@ type LevelDataType = {
 };
 
 type LearnDataType = {
-  content: string[];
+  definition: string;
+  content: { text: string; demonstrationClipIndex?: number }[];
   demonstrationClips: string[];
 };
 

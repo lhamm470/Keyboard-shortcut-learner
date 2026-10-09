@@ -1,9 +1,23 @@
-import test from "../../../../assets/Videos/altUpExampleSolution.mp4";
+import demo1 from "../../../../assets/Videos/altUpDemo1.mp4";
+import demo2 from "../../../../assets/Videos/altUpDemo2.mp4";
 
 const AltUpLearn1 = () => {
   return {
-    content: ["Alt up learn 1 content goes here"],
-    demonstrationClips: [test],
+    definition: "Move line up",
+    content: [
+      {
+        text: "Switches the current line with the line above, effectively moving it up.",
+        demonstrationClipIndex: 1,
+      },
+      {
+        text: "The cursor can be anywhere within the current line, or text can be highlighted and it will still use the current line.",
+      },
+      {
+        text: "If the highlighted text spans more than one line, those lines can be moved at the same time.",
+        demonstrationClipIndex: 2,
+      },
+    ],
+    demonstrationClips: [demo1, demo2],
   };
 };
 

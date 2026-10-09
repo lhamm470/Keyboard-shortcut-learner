@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import DemonstrativeClipsNavigationTemplate from "./DemonstrativeClipsNavigationTemplate";
 import { LearnDataType } from "../ReusedComponents/CustomTypes";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import CodeEditorTesting from "../CodeEditors/CodeEditorTesting";
 
 const DemonstrativeClipsContainerSC = styled.div`
@@ -20,12 +20,24 @@ const DemonstrationClip = styled.video`
 
 type DemonstrativeClipsContainerProps = {
   learnData: LearnDataType;
+  selectedTab: number;
+  setSelectedTab: (tab: number) => void;
 };
 
 const DemonstrativeClipsContainer = ({
   learnData,
+  selectedTab,
+  setSelectedTab,
 }: DemonstrativeClipsContainerProps) => {
-  const [selectedTab, setSelectedTab] = useState(1);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (selectedTab >= 2 && videoRef.current) {
+      void videoRef.current
+        .play()
+        .catch((error) => console.error("Failed to play clip"));
+    }
+  }, [selectedTab]);
 
   return (
     <DemonstrativeClipsContainerSC>
@@ -40,6 +52,7 @@ const DemonstrativeClipsContainer = ({
           return (
             selectedTab === i + 2 && (
               <DemonstrationClip
+                ref={videoRef}
                 key={`demonstration-clip-${i}`}
                 src={clip}
                 controls

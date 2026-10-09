@@ -48,7 +48,7 @@ const NavigationTab = styled.button<{ $active: boolean }>`
 
 type DemonstrativeClipsNavigationTemplateProps = {
   selectedTab: number;
-  setSelectedTab: (state: number) => void;
+  setSelectedTab: (tab: number) => void;
   learnData: LearnDataType;
 };
 
