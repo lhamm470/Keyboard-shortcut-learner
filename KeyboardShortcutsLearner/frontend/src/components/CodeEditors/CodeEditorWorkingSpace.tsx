@@ -19,7 +19,7 @@ const CodeEditorWorkingSpace = ({
 
   // reset code on idle
   useEffect(() => {
-    console.log(gameState);
+    console.log(GameState[gameState]);
     if (gameState == GameState.IDLE) {
       setCurrentCode(levelData.startCode);
     }
@@ -35,7 +35,7 @@ const CodeEditorWorkingSpace = ({
       value={currentCode}
       onChange={(value) => {
         setCurrentCode(value ?? "");
-        if (value?.trim() == levelData.solutionCode) {
+        if (value?.trim() === levelData.solutionCode) {
           setGameState(GameState.COMPLETED);
         }
       }}
@@ -57,7 +57,9 @@ const CodeEditorWorkingSpace = ({
             event.secondarySelections.some((selection) => !selection.isEmpty());
 
           if (hasSelection) {
-            setGameState(GameState.INPROGRESS);
+            setGameState((current) =>
+              current === GameState.IDLE ? GameState.INPROGRESS : current,
+            );
           }
         });
 

@@ -8,6 +8,7 @@ const CodeEditorTesting = () => {
       theme="vs-dark"
       defaultLanguage="javascript"
       defaultValue={`
+// Testing area with random code
 const myList = ["a", "b", "c", "d", "e"];
 
 for (let i = 0; i < myList.length; i++) {

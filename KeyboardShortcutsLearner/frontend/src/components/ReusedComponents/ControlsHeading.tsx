@@ -31,9 +31,9 @@ const ControlsHeading = ({ levelData }: ControlsHeadingProps) => {
         View Example Solution
       </ActionButton>
       <TargetTime
-        targetTimeMinutes={AltUpLevel1().targetTime.minutes}
-        targetTimeSeconds={AltUpLevel1().targetTime.seconds}
-        targetTimeMilliseconds={AltUpLevel1().targetTime.milliseconds}
+        targetTimeMinutes={levelData.targetTime.minutes}
+        targetTimeSeconds={levelData.targetTime.seconds}
+        targetTimeMilliseconds={levelData.targetTime.milliseconds}
       ></TargetTime>
       <HowToPlayModal
         show={showHowToPlay}
