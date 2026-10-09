@@ -10,7 +10,7 @@ const AltUpLearn1 = () => {
         demonstrationClipIndex: 1,
       },
       {
-        text: "The cursor can be anywhere within the current line, or text can be highlighted and it will still use the current line.",
+        text: "Works with any cursor position in the line or with highlighted text.",
       },
       {
         text: "If the highlighted text spans more than one line, those lines can be moved at the same time.",
